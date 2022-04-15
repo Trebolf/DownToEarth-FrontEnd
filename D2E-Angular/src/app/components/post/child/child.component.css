@@ -1,0 +1,35 @@
+.comment-head{
+    background-color: #4a5833;
+    height: 3.5vh;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    padding: 4px;
+    padding-left: 8px;
+    margin-top: 10px;
+}
+
+.comment-card{
+    background-color: #938863;
+    border-color: #d8d293;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-width: 4px;
+    border-style: solid;
+    width: 100%;
+    padding: 8px;
+    color: white;
+}
+
+.comment-body{
+    line-height: 20px;
+}
+
+.comment-status{
+    display: flex;
+    margin: 8px;
+}
+
+.comment-time-submitted{
+    margin-left: auto;
+    margin-right: 0;
+}

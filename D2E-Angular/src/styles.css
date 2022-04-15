@@ -9,3 +9,8 @@
     background-color: #616d4d;
     background-color: #0c3808;
 }
+
+html *
+{
+    font-family: 'Poppins', sans-serif;
+}

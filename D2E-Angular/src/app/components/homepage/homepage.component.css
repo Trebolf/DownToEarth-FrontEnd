@@ -1,0 +1,8 @@
+.home-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color:#393939;
+    overflow-y: auto;
+}
