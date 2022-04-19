@@ -9,6 +9,7 @@ import { Post } from '../models/Post';
 export class ServiceService {
 
   postId : number = 1;
+  userId : number = 1;
   commentId : number = 1;
   post : Post = <Post>{};
 
@@ -16,6 +17,10 @@ export class ServiceService {
 
   getAllPost() {
     return this.httpCli.get<any>(`${environment.domain}/post`);
+  }
+
+  getAllPostByUserId() {
+    return this.httpCli.get<any>(`${environment.domain}post/userId/${this.userId}`);
   }
 
   getOnePostById() {
