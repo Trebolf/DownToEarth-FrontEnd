@@ -68,8 +68,8 @@
     margin-bottom: 8px;
     margin-right: 10px;
     border-radius: 3px;
-    position: relative;
-    left: 50%;
+    position: absolute;
+    right: 1%;
     bottom: 5%;
 }
 

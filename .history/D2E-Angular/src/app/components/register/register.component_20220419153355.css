@@ -46,7 +46,6 @@
     border-radius: 12px;
     gap: 7px;
     column-gap: 10px;
-    position: relative;
 }
 
 .input-field{
@@ -69,8 +68,8 @@
     margin-right: 10px;
     border-radius: 3px;
     position: relative;
-    left: 50%;
-    bottom: 5%;
+    left: 80%;
+    bottom: 50px;
 }
 
 .btn{

@@ -7,6 +7,13 @@ import { environment } from 'src/environments/environment';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+let username = document.getElementById('username');
+let password = document.getElementById('password');
+let email = document.getElementById('email');
+let firstname = document.getElementById('firstname');
+let lastname = document.getElementById('lastname');
+let location = document.getElementById('location');
+
 export class RegisterComponent implements OnInit {
 
   constructor(private httpCli : HttpClient) { }

@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 export class RegisterComponent implements OnInit {
 
   constructor(private httpCli : HttpClient) { }
-  
+  let user 
   createUser(username: string, password: string, email: string, firstname: string, lastname: string, location: string){
     console.log({
       "username": username,

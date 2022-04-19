@@ -68,9 +68,9 @@
     margin-bottom: 8px;
     margin-right: 10px;
     border-radius: 3px;
-    position: relative;
-    left: 50%;
-    bottom: 5%;
+    position: absolute;
+    left: 60%;
+    bottom: 50%;
 }
 
 .btn{
