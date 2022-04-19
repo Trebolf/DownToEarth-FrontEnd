@@ -8,7 +8,7 @@ import { Post } from '../models/Post';
 })
 export class ServiceService {
 
-  postId : number = NaN;
+  postId : number = null;
   commentId : number = 1;
   post : Post = <Post>{};
 
