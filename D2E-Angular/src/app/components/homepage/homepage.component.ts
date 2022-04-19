@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Post } from 'src/app/models/Post';
+import { ServiceService } from 'src/app/services/service.service';
 
 @Component({
   selector: 'app-homepage',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor() { }
+  postList : Array<Post> = [];
+
+  constructor(private service : ServiceService) { }
 
   ngOnInit(): void {
+    this.getAllPost();
+  }
+
+  getAllPost() {
+    this.service.getAllPost().subscribe(responseBody => {
+      this.postList = responseBody;
+      console.log(responseBody);
+    })
   }
 
 }

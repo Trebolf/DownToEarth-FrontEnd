@@ -1,9 +1,12 @@
-<div class="comment-head">Commenter</div>
-<div class="comment-card">
-    <p class="comment-body">
-        "'You miss 100% of the shots you don't take' - Wayne Gretzky" - Michael Scott
-    </p>
-    <div class="comment-status">
-        <div class="comment-time-submitted">Wed. Apr 6, 2022</div>
+
+
+
+<div *ngFor="let obj of this.commentList">
+    <div class="comment-head">{{obj.user?.username}}</div>
+    <div class="comment-card">
+        <p class="comment-body">{{obj.commentBody}}</p>
+        <div class="comment-status">
+            <div class="comment-time-submitted">{{obj?.timeCommented}}</div>
+        </div>
     </div>
 </div>
