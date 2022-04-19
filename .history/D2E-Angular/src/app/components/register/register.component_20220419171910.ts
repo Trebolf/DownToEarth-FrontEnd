@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
   location : string = "";
   users : Array<User> = [];
 
-  constructor(private service : ServiceService, private router : Router) { }
+  constructor(private service : ServiceService,) { }
   
   createUser(username: string, password: string, email: string, firstname: string, lastname: string, location: string){
     
@@ -43,7 +43,7 @@ export class RegisterComponent implements OnInit {
       "location": location
 
     })
-    this.router.navigate(['home']);
+    this.router.navigate(['PublicPage']);
   }
   ngOnInit(): void {
   }

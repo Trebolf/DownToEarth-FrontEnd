@@ -45,6 +45,15 @@ export class ServiceService {
   }
   createUser(username: string, password: string, email: string, firstname: string, lastname: string, location: string){
     
+    this.service.createUser(this.username, this.password, this.email, this.firstname, this.lastname, this.location).subscribe(responseBody => {
+      this.username="";
+      this.password="";
+      this.email="";
+      this.firstname="";
+      this.lastname="";
+      this.location="";
+      this.users.push(responseBody);
+    })
 
     console.log({
       "username": username,

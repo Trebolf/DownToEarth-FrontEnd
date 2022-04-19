@@ -43,28 +43,5 @@ export class ServiceService {
       withCredentials: true
     })
   }
-  createUser(username: string, password: string, email: string, firstname: string, lastname: string, location: string){
-    
-
-    console.log({
-      "username": username,
-      "password": password,
-      "email": email,
-      "firstname": firstname,
-      "lastname": lastname,
-      "location": location
-
-    })
-    return this.httpCli.post<any>(`${environment.domain}/user`,{
-      "username": username,
-      "password": password,
-      "email": email,
-      "firstname": firstname,
-      "lastname": lastname,
-      "location": location
-
-    },{
-      withCredentials: true
-    })
-  }
+  
 }

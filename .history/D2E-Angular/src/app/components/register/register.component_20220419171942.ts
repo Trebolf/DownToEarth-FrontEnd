@@ -43,7 +43,7 @@ export class RegisterComponent implements OnInit {
       "location": location
 
     })
-    this.router.navigate(['home']);
+    this.router.navigate(['homepage']);
   }
   ngOnInit(): void {
   }

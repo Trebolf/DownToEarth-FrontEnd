@@ -3,26 +3,26 @@
     <div class="register-card">
         <form class="register-form" (submit)="createUser(username,password,email,firstname,lastname,location)">
             <div class="register-input">
-                <input type="text" [(ngModel)]="username" placeholder="Username*" class="input-field"[ngModelOptions]="{standalone: true}" required>
+                <input type="text" [(ngModel)]="username" placeholder="Username*" class="input-field"[ngModelOptions]="{standalone: true}">
             </div>
             <div class="register-input">
-                <input type="text" [(ngModel)]="password" placeholder="Password*" class="input-field"[ngModelOptions]="{standalone: true}" required>
+                <input type="text" [(ngModel)]="password" placeholder="Password*" class="input-field"[ngModelOptions]="{standalone: true}">
             </div>
             <div class="register-input">
                 <input type="text" [(ngModel)]="firstname" placeholder="First Name" class="input-field"[ngModelOptions]="{standalone: true}">
             </div>
             <div class="register-input">
-                <input type="text" [(ngModel)]="lastname" placeholder="Last Name" class="input-field"[ngModelOptions]="{standalone: true}">
+                <input type="text" [(ngModel)]="lastname" placeholder="Last Name" class="input-field" required>
             </div>
             <div class="register-input">
-                <input type="text" [(ngModel)]="email" placeholder="Email" class="Address" class="input-field"[ngModelOptions]="{standalone: true}">
+                <input type="text" [(ngModel)]="email" placeholder="Email" class="Address" class="input-field" required>
             </div>
             <div class="register-input">
-                <input type="text" [(ngModel)]="location" placeholder="Location" class="input-field"[ngModelOptions]="{standalone: true}">
+                <input type="text" [(ngModel)]="location" placeholder="Location" class="input-field" required>
             </div>
             <div id="register-submit">
                 <div class="asterisk">*Required</div>
-                <input type="submit" class="btn btn" value="Register">
+                <button class="btn btn" (click)="createUser(username,password,email,firstname,lastname,location)">Register</button>
             </div>
         </form>
     </div>

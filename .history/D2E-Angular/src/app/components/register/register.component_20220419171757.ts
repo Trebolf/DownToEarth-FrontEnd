@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/User';
 import { environment } from 'src/environments/environment';
 import { ServiceService } from 'src/app/services/service.service';
-import { Router } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  [x: string]: any;
 
   username : string = "";
   password : string = "";
@@ -20,7 +21,7 @@ export class RegisterComponent implements OnInit {
   location : string = "";
   users : Array<User> = [];
 
-  constructor(private service : ServiceService, private router : Router) { }
+  constructor(private service : ServiceService) { }
   
   createUser(username: string, password: string, email: string, firstname: string, lastname: string, location: string){
     
@@ -43,7 +44,7 @@ export class RegisterComponent implements OnInit {
       "location": location
 
     })
-    this.router.navigate(['home']);
+    this.router.navigate(['PublicPage']);
   }
   ngOnInit(): void {
   }
