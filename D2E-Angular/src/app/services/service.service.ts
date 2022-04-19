@@ -9,6 +9,7 @@ import { User } from '../models/User';
 })
 export class ServiceService {
 
+
   postId : number = 1;
   userId : number = 1;
   commentId : number = 1;
@@ -44,6 +45,30 @@ export class ServiceService {
     return this.httpCli.post<any>(`${environment.domain}/post`, {
       "postBody" : postBody
     }, {
+      withCredentials: true
+    })
+  }
+  createUser(username: string, password: string, email: string, firstname: string, lastname: string, location: string){
+    
+
+    console.log({
+      "username": username,
+      "password": password,
+      "email": email,
+      "firstname": firstname,
+      "lastname": lastname,
+      "location": location
+
+    })
+    return this.httpCli.post<any>(`${environment.domain}/user`,{
+      "username": username,
+      "password": password,
+      "email": email,
+      "firstname": firstname,
+      "lastname": lastname,
+      "location": location
+
+    },{
       withCredentials: true
     })
   }
