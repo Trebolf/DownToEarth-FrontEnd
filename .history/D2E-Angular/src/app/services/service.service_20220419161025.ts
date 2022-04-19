@@ -11,6 +11,7 @@ export class ServiceService {
 
   postId : number = 1;
   userId : number = 1;
+>>>>>>> dev
   commentId : number = 1;
   post : Post = <Post>{};
 

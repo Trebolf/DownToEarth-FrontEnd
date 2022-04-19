@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Post } from 'src/app/models/Post';
+import { ServiceService } from 'src/app/services/service.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  postList : Array<Post> = [];
+  post : Post = <Post>{};
+  comments : Comment = <Comment>{};
+
+  constructor(private service : ServiceService) { }
 
   ngOnInit(): void {
+    this.getAllPostGivenUserId();
   }
 
+  getAllPostGivenUserId() {
+    this.service.getAllPostByUserId().subscribe(responseBody => {
+      this.postList = responseBody;
+      console.log(this.postList);
+    })
+  }
 }

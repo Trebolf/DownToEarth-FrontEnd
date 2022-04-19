@@ -3,8 +3,8 @@
 
 
 <div class="home-container">
+    <div class="create-post-header">Create New Post</div>
     <div class="create-post-card">
-        Create New Post
         <form class="create-post-form" (submit)="createPost($event)">
             <input class="create-post-input" type="text" [(ngModel)]="postInput" name="postInput" required/>
         </form>

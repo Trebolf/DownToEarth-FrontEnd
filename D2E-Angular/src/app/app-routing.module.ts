@@ -8,8 +8,8 @@ import { RegisterComponent } from './components/register/register.component';
 const routes: Routes = [
   {path: "", component: LoginComponent},
   {path: "home", component: HomepageComponent},
-  {path: "register", component: RegisterComponent}
-  //{path: `${username}`, component: ProfileComponent}
+  {path: "register", component: RegisterComponent},
+  {path: `userId`, component: ProfileComponent}
 ];
 
 @NgModule({
