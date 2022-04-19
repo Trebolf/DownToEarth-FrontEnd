@@ -10,6 +10,7 @@ import { ServiceService } from 'src/app/services/service.service';
 export class HomepageComponent implements OnInit {
 
   postList : Array<Post> = [];
+  postInput : string = "";
 
   constructor(private service : ServiceService) { }
 
@@ -21,6 +22,16 @@ export class HomepageComponent implements OnInit {
     this.service.getAllPost().subscribe(responseBody => {
       this.postList = responseBody;
       console.log(responseBody);
+    })
+  }
+
+  createPost(e : any) {
+    e.preventDefault();
+
+    this.service.createPost(this.postInput).subscribe(responseBody => {
+      this.postInput="";
+      this.postList.push(responseBody.data);
+      console.log(responseBody.data);
     })
   }
 

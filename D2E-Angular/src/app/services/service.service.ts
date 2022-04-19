@@ -29,4 +29,12 @@ export class ServiceService {
   getAllCommentsByPostId() {
     return this.httpCli.get<any>(`${environment.domain}/comment/post/${this.postId}/comment`)
   }
+
+  createPost(postBody : string) {
+    return this.httpCli.post<any>(`${environment.domain}/post`, {
+      "postBody" : postBody
+    }, {
+      withCredentials: true
+    })
+  }
 }

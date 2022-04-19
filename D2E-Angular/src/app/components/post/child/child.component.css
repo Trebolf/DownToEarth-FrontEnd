@@ -23,6 +23,7 @@
 
 .comment-body{
     line-height: 20px;
+    font-size: 2vh;
 }
 
 .comment-status{
@@ -33,4 +34,5 @@
 .comment-time-submitted{
     margin-left: auto;
     margin-right: 0;
+    font-size: 2vh;
 }
