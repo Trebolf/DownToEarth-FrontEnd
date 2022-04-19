@@ -1,6 +1,16 @@
+
+
+
+
 <div class="home-container">
-    <app-parent></app-parent>
-    <app-parent></app-parent>
-    <app-parent></app-parent>
+    <div class="create-post-card">
+        Create New Post
+        <form class="create-post-form" (submit)="createPost($event)">
+            <input class="create-post-input" type="text" [(ngModel)]="postInput" name="postInput" required/>
+        </form>
+        <div class="button-container">
+            <button class="create-post-button">Submit</button>
+        </div>
+    </div>
     <app-parent></app-parent>
 </div>

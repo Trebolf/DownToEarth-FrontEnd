@@ -1,6 +1,7 @@
 .comment-head{
     background-color: #4a5833;
     height: 3.5vh;
+    font-size: 2vh;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     padding: 4px;
@@ -22,6 +23,7 @@
 
 .comment-body{
     line-height: 20px;
+    font-size: 2vh;
 }
 
 .comment-status{
@@ -32,4 +34,5 @@
 .comment-time-submitted{
     margin-left: auto;
     margin-right: 0;
+    font-size: 2vh;
 }
