@@ -9,7 +9,7 @@
             <input class="create-post-input" type="text" [(ngModel)]="postInput" name="postInput" required/>
         </form>
         <div class="button-container">
-            <button class="create-post-button">Submit</button>
+            <button class="create-post-button" (click)="createPost($event)">Submit</button>
         </div>
     </div>
     <app-parent></app-parent>

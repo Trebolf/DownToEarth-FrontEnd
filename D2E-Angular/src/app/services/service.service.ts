@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Post } from '../models/Post';
+import { User } from '../models/User';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,10 @@ export class ServiceService {
 
   constructor(private httpCli : HttpClient) { }
 
+  getUserbyUserId() {
+    return this.httpCli.get<User>(`${environment.domain}/user/${this.userId}`);
+  }
+  
   getAllPost() {
     return this.httpCli.get<any>(`${environment.domain}/post`);
   }
