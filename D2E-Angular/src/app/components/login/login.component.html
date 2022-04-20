@@ -1,1 +1,18 @@
-<p>login works!</p>
+
+    <div class="login-container">
+        <h1>Welcome to D2E</h1>
+    </div>
+    
+    <div class="login-form">
+        <form class="login-box">
+            <input type="username" [(ngModel)]="username" placeholder="Username" required [ngModelOptions]="{standalone: true}"
+            >
+            <input type="password" [(ngModel)]="password" placeholder="Password" required [ngModelOptions]="{standalone: true}"
+            >
+
+            <button (click)="login()">Login</button> 
+        </form>
+    </div>
+
+        <!-- <app-parent></app-parent> -->
+        <!-- (insert register form?) -->

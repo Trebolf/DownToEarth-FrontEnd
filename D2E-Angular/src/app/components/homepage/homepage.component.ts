@@ -20,6 +20,7 @@ export class HomepageComponent implements OnInit, DoCheck {
   constructor(private service : ServiceService) { }
 
   ngOnInit(): void {
+    this.checkSession();
     this.getAllPost();
     this.getUserByUserId();
   }
@@ -60,4 +61,11 @@ export class HomepageComponent implements OnInit, DoCheck {
       })
     })
   }
+
+  checkSession(){
+    this.service.checkSession().subscribe(responseBody => {
+      console.log(responseBody);
+    })
+  }
+
 }
