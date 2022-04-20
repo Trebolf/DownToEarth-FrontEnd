@@ -47,6 +47,17 @@
     margin-left: 8px;
     height: 3vh;
     width: auto;
+    cursor: pointer;
+}
+
+.gem-img:hover{
+    transform: scale(1.1);
+    -webkit-filter: drop-shadow(0 0 6px rgb(113, 255, 56));
+    filter: drop-shadow(0 0 6px rgb(113, 255, 56));
+}
+
+.gem-img:active{
+    transform: scale(1);
 }
 
 .post-gem-count{
