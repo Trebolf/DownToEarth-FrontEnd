@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { Like } from '../models/Like';
 import { Post } from '../models/Post';
 import { User } from '../models/User';
 
@@ -52,6 +53,19 @@ export class ServiceService {
   createPost(post : Post) {
     return this.httpCli.post<any>(`${environment.domain}/post`, 
     post, {
+      withCredentials: true
+    })
+  }
+
+  createLike(like : Like) {
+    return this.httpCli.post<any>(`${environment.domain}/likes`, 
+    like, {
+      withCredentials: true
+    })
+  }
+
+  deleteLike() {
+    return this.httpCli.delete<any>(`${environment.domain}/likes`, {
       withCredentials: true
     })
   }
