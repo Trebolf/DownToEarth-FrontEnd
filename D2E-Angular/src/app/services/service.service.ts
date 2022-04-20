@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { Post } from '../models/Post';
+import { User } from '../models/User';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +16,32 @@ export class ServiceService {
   commentId : number = 1;
   post : Post = <Post>{};
 
-  constructor(private httpCli : HttpClient) { }
+  /* username: string = "Cloud";
+  password: string = "pass1"; */
+
+  constructor(private httpCli : HttpClient, private router: Router) { }
+
+  login(username: string, password: string){
+
+    return this.httpCli.post<any>(`${environment.domain}/session`, {
+      "username": username,
+      "password": password}, {
+      withCredentials : true}
+    );
+  }
+
+  checkSession(){
+    return this.httpCli.get<any>(`${environment.domain}/session`, {
+      withCredentials: true
+    });
+
+  }
+
+  logout(){
+    return this.httpCli.delete<any>('http://localhost:9000/session', {
+      withCredentials: true
+    });
+  }
 
   getAllPost() {
     return this.httpCli.get<any>(`${environment.domain}/post`);

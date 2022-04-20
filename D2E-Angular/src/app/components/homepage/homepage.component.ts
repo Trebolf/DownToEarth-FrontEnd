@@ -15,6 +15,7 @@ export class HomepageComponent implements OnInit {
   constructor(private service : ServiceService) { }
 
   ngOnInit(): void {
+    this.checkSession();
     this.getAllPost();
   }
 
@@ -32,6 +33,12 @@ export class HomepageComponent implements OnInit {
       this.postInput="";
       this.postList.push(responseBody.data);
       console.log(responseBody.data);
+    })
+  }
+
+  checkSession(){
+    this.service.checkSession().subscribe(responseBody => {
+      console.log(responseBody);
     })
   }
 
