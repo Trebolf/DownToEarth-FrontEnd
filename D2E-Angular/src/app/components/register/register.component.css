@@ -19,7 +19,7 @@
     display: flex;
     justify-content: space-evenly;
     max-width: 775px;
-
+    margin-top: 10%;
 }
 
 .register-card{
