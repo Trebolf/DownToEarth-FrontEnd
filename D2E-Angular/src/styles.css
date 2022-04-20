@@ -14,3 +14,44 @@ html *
 {
     font-family: 'Poppins', sans-serif;
 }
+
+input[type=text], textarea {
+    -webkit-transition: all 0.20s ease-in-out;
+    -moz-transition: all 0.20s ease-in-out;
+    -ms-transition: all 0.20s ease-in-out;
+    -o-transition: all 0.20s ease-in-out;
+    outline: none;
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid #DDDDDD;
+}
+
+input[type=text]:focus, textarea:focus {
+    box-shadow: 0 0 8px rgb(255, 244, 28);
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 2px solid rgb(255, 244, 28);
+}
+
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+  /* Track */
+::-webkit-scrollbar-track {
+    background-color: #c7c3a0;
+    z-index: 10;
+}
+
+  /* Handle */
+::-webkit-scrollbar-thumb {
+    background: #566539;
+}
+
+  /* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #667646;
+}

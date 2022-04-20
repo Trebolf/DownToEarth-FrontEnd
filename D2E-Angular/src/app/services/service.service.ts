@@ -10,11 +10,19 @@ import { User } from '../models/User';
 })
 export class ServiceService {
 
-
   postId : number = 1;
   userId : number = 1;
   commentId : number = 1;
   post : Post = <Post>{};
+  user : User = {
+    userId: 1, 
+    email: "Cloud7@email.com", 
+    username: "Cloud", 
+    password:"pass1", 
+    firstName: "Cloud", 
+    lastName: "Strife", 
+    location: ""
+  };
 
   /* username: string = "Cloud";
   password: string = "pass1"; */
@@ -43,6 +51,10 @@ export class ServiceService {
     });
   }
 
+  getUserbyUserId() {
+    return this.httpCli.get<User>(`${environment.domain}/user/${this.userId}`);
+  }
+  
   getAllPost() {
     return this.httpCli.get<any>(`${environment.domain}/post`);
   }
@@ -63,13 +75,13 @@ export class ServiceService {
     return this.httpCli.get<any>(`${environment.domain}/comment/post/${this.postId}/comment`)
   }
 
-  createPost(postBody : string) {
-    return this.httpCli.post<any>(`${environment.domain}/post`, {
-      "postBody" : postBody
-    }, {
+  createPost(post : Post) {
+    return this.httpCli.post<any>(`${environment.domain}/post`, 
+    post, {
       withCredentials: true
     })
   }
+
   createUser(username: string, password: string, email: string, firstname: string, lastname: string, location: string){
     
 

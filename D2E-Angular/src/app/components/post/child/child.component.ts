@@ -38,8 +38,11 @@ export class ChildComponent implements OnInit {
   getAllCommentsByPostId2() {
     this.service.getAllCommentsByPostId().subscribe(responseBody => {
       this.commentList = responseBody;
-      console.log(responseBody);
     });
+  }
+
+  createComment(e : any) {
+    e.preventDefault();
   }
 
 }
