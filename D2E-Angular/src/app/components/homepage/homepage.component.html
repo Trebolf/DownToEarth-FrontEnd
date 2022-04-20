@@ -6,7 +6,7 @@
     <div class="create-post-header">Create New Post</div>
     <div class="create-post-card">
         <form class="create-post-form" (submit)="createPost($event)">
-            <input class="create-post-input" type="text" [(ngModel)]="postInput" name="postInput" required/>
+            <textarea class="create-post-input" type="text" [(ngModel)]="post.postBody" name="postBody" required></textarea>
         </form>
         <div class="button-container">
             <button class="create-post-button" (click)="createPost($event)">Submit</button>

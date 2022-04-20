@@ -10,3 +10,12 @@
         </div>
     </div>
 </div>
+
+<div class="create-comment-container">
+    <div class="create-comment">
+        <textarea class="create-comment-input" type="text" [(ngModel)]="comment.commentBody" name="postBody" required></textarea>
+    </div>
+    <div class="button-container">
+        <button class="create-comment-button" (click)="createComment($event)">Submit</button>
+    </div>
+</div>

@@ -1,3 +1,9 @@
 .navbar-logo{
     margin-right: 16px;
 }
+
+.navbar-position{
+    position: fixed;
+    width: 100%;
+    z-index: 9;
+}

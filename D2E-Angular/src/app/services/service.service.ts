@@ -9,11 +9,19 @@ import { User } from '../models/User';
 })
 export class ServiceService {
 
-
   postId : number = 1;
   userId : number = 1;
   commentId : number = 1;
   post : Post = <Post>{};
+  user : User = {
+    userId: 1, 
+    email: "Cloud7@email.com", 
+    username: "Cloud", 
+    password:"pass1", 
+    firstName: "Cloud", 
+    lastName: "Strife", 
+    location: ""
+  };
 
   constructor(private httpCli : HttpClient) { }
 
@@ -41,13 +49,13 @@ export class ServiceService {
     return this.httpCli.get<any>(`${environment.domain}/comment/post/${this.postId}/comment`)
   }
 
-  createPost(postBody : string) {
-    return this.httpCli.post<any>(`${environment.domain}/post`, {
-      "postBody" : postBody
-    }, {
+  createPost(post : Post) {
+    return this.httpCli.post<any>(`${environment.domain}/post`, 
+    post, {
       withCredentials: true
     })
   }
+
   createUser(username: string, password: string, email: string, firstname: string, lastname: string, location: string){
     
 

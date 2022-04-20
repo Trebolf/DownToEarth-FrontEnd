@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { Post } from 'src/app/models/Post';
 import { User } from 'src/app/models/User';
 import { ServiceService } from 'src/app/services/service.service';
+import { ParentComponent } from '../post/parent/parent.component';
 
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.css']
 })
-export class HomepageComponent implements OnInit {
+export class HomepageComponent implements OnInit, DoCheck {
 
   postList : Array<Post> = [];
   postInput : string = "";
@@ -21,6 +22,10 @@ export class HomepageComponent implements OnInit {
   ngOnInit(): void {
     this.getAllPost();
     this.getUserByUserId();
+  }
+
+  ngDoCheck(): void {
+    this.postList = this.postList;
   }
 
   getUserByUserId() {
@@ -40,26 +45,19 @@ export class HomepageComponent implements OnInit {
   createPost(e : any) {
     e.preventDefault();
 
-    let userToPost = this.user;
-
     this.service.getUserbyUserId().subscribe(userToPost => {
       this.user=userToPost;
-      console.log(userToPost);
-    })
-
-    this.service.createPost(this.postInput).subscribe(responseBody => {
-      this.postInput="";
-      this.post.user = userToPost;
-      this.post.postBody = this.postInput;
-      this.postList.push(responseBody.data);
-      
-      console.log(userToPost);
-
-      /* console.log(this.postInput);
+      this.post.user=userToPost;
       console.log(this.post);
-      console.log(userToPost);
-      console.log(responseBody.data); */
+
+      this.service.createPost(this.post).subscribe(responseBody => {
+        this.postInput="";
+        this.post.user = userToPost;
+        this.post.postBody = this.postInput;
+        this.postList.push(responseBody.data);
+        
+        console.log(this.post.postBody);
+      })
     })
   }
-
 }
