@@ -5,10 +5,8 @@
     
     <div class="login-form">
         <form class="login-box">
-            <input type="username" [(ngModel)]="username" placeholder="Username" required [ngModelOptions]="{standalone: true}"
-            >
-            <input type="password" [(ngModel)]="password" placeholder="Password" required [ngModelOptions]="{standalone: true}"
-            >
+            <input type="username" [(ngModel)]="username" placeholder="Username" required [ngModelOptions]="{standalone: true}">
+            <input type="password" [(ngModel)]="password" placeholder="Password" required [ngModelOptions]="{standalone: true}">
 
             <button (click)="login()">Login</button> 
         </form>
