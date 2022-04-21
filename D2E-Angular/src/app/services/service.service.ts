@@ -13,7 +13,7 @@ import { User } from '../models/User';
 export class ServiceService {
 
   postId : number = 1;
-  userId : number = 1;
+  userId : number = 1; // X
   commentId : number = NaN;
   post : Post = <Post>{};
   user : User = <User>{};

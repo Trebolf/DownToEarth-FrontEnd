@@ -23,18 +23,10 @@ export class HomepageComponent implements OnInit, DoCheck {
   ngOnInit(): void {
     this.checkSession();
     this.getAllPost();
-    this.getUserByUserId();
   }
 
   ngDoCheck(): void {
     this.postList = this.postList;
-  }
-
-  getUserByUserId() {
-    this.service.getUserbyUserId().subscribe(responseBody => {
-      this.user = responseBody;
-      console.log(responseBody);
-    })
   }
 
   getAllPost() {

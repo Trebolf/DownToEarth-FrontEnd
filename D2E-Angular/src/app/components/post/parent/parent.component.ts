@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterContentInit, Component, DoCheck, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Like } from 'src/app/models/Like';
 import { Post } from 'src/app/models/Post';
 import { User } from 'src/app/models/User';
@@ -9,14 +9,17 @@ import { ServiceService } from 'src/app/services/service.service';
   templateUrl: './parent.component.html',
   styleUrls: ['./parent.component.css']
 })
-export class ParentComponent implements OnInit {
+export class ParentComponent implements OnInit{
 
   postList : Array<Post> = [];
   post : Post = <Post>{};
   comments : Comment = <Comment>{};
   like: Like = <Like>{};
   likeList : Array<Like> = [];
+
+  @Input()
   user : User = <User>{};
+
   likeGem : boolean = true;
   likeGemVisibility : boolean = true;
 
@@ -24,7 +27,6 @@ export class ParentComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllPost();
-    this.getOnePostById(this.post);
   }
 
   getAllPost() {
@@ -33,19 +35,40 @@ export class ParentComponent implements OnInit {
     })
   }
 
-  getOnePostById(post : Post) {
+  getOnePostById() {
     this.service.getOnePostById().subscribe(responseBody => {
-      this.post = post;
-      console.log(post);
+      this.post = responseBody;
+      console.log(responseBody);
     });
   }
 
-  createLike(e : any) {
-    e.preventDefault();
+  // separateEachPost() {
 
-    this.service.getUserbyUserId().subscribe(userToLike => {
+  //   let postIndex = 0;
+
+  //   this.service.getAllPost().subscribe(responseBody => {
+  //     this.postList = responseBody;
+  //     console.log(responseBody);
+
+  //     postIndex = responseBody.target.id - 1;
+  //     console.log(postIndex);
+
+  //     this.service.getOnePostById().subscribe(isolatedPost => {
+  //       this.post = isolatedPost;
+
+  //       console.log(isolatedPost)
+  //     })
+  //   })
+  // }
+
+  createLike(postId : any) {
+    /* e.preventDefault(); */
+
+    console.log(postId);
+
+    this.service.checkSession().subscribe(userToLike => {
       this.user = userToLike;
-      console.log(this.user);
+      console.log(userToLike);
 
         this.service.getOnePostById().subscribe(postToLike => {
           this.post = postToLike;
@@ -58,9 +81,27 @@ export class ParentComponent implements OnInit {
           this.service.createLike(this.like).subscribe(responseBody => {
             this.likeList.push(responseBody.data);
           })
-        });
+       });
     })
   }
+
+  /* createLike2(postId : number) {
+
+    this.service.checkSession().subscribe(userToLike => {
+      this.user = userToLike;
+      console.log(userToLike);
+
+      this.service.getOnePostById().subscribe(postToLike => {
+        this.like.post = postToLike;
+        this.like.user = userToLike;
+        console.log(this.like);
+        
+        this.service.createLike(this.like).subscribe(responseBody => {
+          this.likeList.push(responseBody.data);
+        });
+      })
+    })
+  } */
 
   setButton() {
     this.likeGem = this.likeGemVisibility;
