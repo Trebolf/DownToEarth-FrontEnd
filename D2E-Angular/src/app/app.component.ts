@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ServiceService } from './services/service.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'D2E-Angular';
+
+  constructor(private service : ServiceService) { }
+
+  logout() {
+    this.service.logout().subscribe(responseBody => {
+      console.log(responseBody);
+    })
+  }
 }
+
