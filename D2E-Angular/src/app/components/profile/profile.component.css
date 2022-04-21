@@ -1,0 +1,108 @@
+
+/* whole page */
+.profile-container{
+    padding: 10%;
+    border-radius: 0.5rem;
+    height: 100vh;
+    background-color:#393939;
+}
+
+/* profile box */
+.post-container{
+    background: #938863;
+    height: 65vh;
+    width: 70vw;
+    margin-top: -80px;
+    border-radius: 12px;
+    border-width: 10px;
+    margin-left: 100px;
+}
+
+/* profile picture */
+.profile-picture{
+    display: flex;
+    text-align: center;
+}
+
+
+/* profile picture 1/2 */
+.profile-img img{
+    width: 100%;
+    height: 125%;
+    margin-top: 25px;
+    margin-left: 45px;
+}
+
+/* "change photo box" 2/2 */
+.profile-img .file {
+    position: relative;
+    margin-left: 45px;
+    overflow: hidden;
+    margin-top: 15%;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    font-size: 15px;
+    background: #141107;
+}
+
+/* picture itself */
+.profile-img .file input {
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    top: 0;
+}
+
+/* profile name  >>>>FIX<<<< */
+h3{
+    color: #0c3808;
+    font-weight: 800;
+    display: flex;
+    margin-left: 550px;
+    margin-top: -80px;
+    position: absolute;
+    font-size: 50px;
+}
+
+/* edit profile button */
+.profile-edit-btn{
+    margin-top: 10px;
+    border: none;
+    border-radius: 1.5rem;
+    width: 10%;
+    padding: 0.5%;
+    font-weight: 600;
+    cursor: pointer;
+    position: absolute;
+    right: 16%;
+    top: 14%;
+    margin-right: 5px;
+}
+
+/* user info title*/
+.column-title{
+    margin-top: 50px;
+    margin-left: 90px;
+    color: black;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+/* user info text */
+.column-text{
+    margin-top: 5px;
+    margin-left: 90px;
+    color: white;
+    font-weight: 600;
+}
+
+.form-info{
+    margin-top: 50px;
+    margin-left: 250px;
+}
+
+/* ADD FUNCTIONALITY TO
+    - add profile photo into profile
+    - edit profile
+*/
