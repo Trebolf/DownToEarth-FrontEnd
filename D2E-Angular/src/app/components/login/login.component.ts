@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
       console.log(responseBody);
       this.user=responseBody;
     })
-      this.router.navigate(['home']);
+      this.router.navigate(['/home']);
   }
 
   checkSession(){

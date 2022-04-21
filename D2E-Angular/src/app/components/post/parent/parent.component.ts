@@ -97,8 +97,7 @@ export class ParentComponent implements OnInit {
       console.log(responseBody)
       this.like = responseBody;
 
-      this.service.deleteLike(this.like.likesId).subscribe(responseBody => {
-      })
+      this.service.deleteLike(this.like.likesId).subscribe()
     })
   }
 

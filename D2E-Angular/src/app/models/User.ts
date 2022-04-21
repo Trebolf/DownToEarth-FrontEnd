@@ -7,5 +7,5 @@ export interface User{
     firstName : string;
     lastName : string;
     location : string;
-
+    profilePic : string;
 }

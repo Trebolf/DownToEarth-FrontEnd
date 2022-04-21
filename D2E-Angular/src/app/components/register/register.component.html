@@ -1,7 +1,7 @@
 <div class="register-container">
     <div class="register-tab">Registration</div>
     <div class="register-card">
-        <form class="register-form" (submit)="createUser(username,password,email,firstname,lastname,location)">
+        <form class="register-form" (submit)="createUser(username,password,email,firstname,lastname,location,profilePic)">
             <div class="register-input">
                 <input type="text" [(ngModel)]="username" placeholder="Username*" class="input-field"[ngModelOptions]="{standalone: true}" required>
             </div>
@@ -19,6 +19,11 @@
             </div>
             <div class="register-input">
                 <input type="text" [(ngModel)]="location" placeholder="Location" class="input-field"[ngModelOptions]="{standalone: true}">
+            </div>
+            <div>
+                Profile Picture:
+                <input type="file" (change)="addFile($event)" id="fileInput"/>
+                <img [src]="picture ? fileUrl : profilePic" alt="Profile Pics" id="profilePic">
             </div>
             <div id="register-submit">
                 <div class="asterisk">*Required</div>
