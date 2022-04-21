@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core';
+import { NumberValueAccessor } from '@angular/forms';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { Like } from '../models/Like';
@@ -13,17 +14,11 @@ export class ServiceService {
 
   postId : number = 1;
   userId : number = 1;
-  commentId : number = 1;
+  commentId : number = NaN;
   post : Post = <Post>{};
-  user : User = {
-    userId: 1, 
-    email: "Cloud7@email.com", 
-    username: "Cloud", 
-    password:"pass1", 
-    firstName: "Cloud", 
-    lastName: "Strife", 
-    location: ""
-  };
+  user : User = <User>{};
+  postId_fk : number = 1;
+  likesId : number = 1;
 
   /* username: string = "Cloud";
   password: string = "pass1"; */
@@ -47,13 +42,15 @@ export class ServiceService {
   }
 
   logout(){
-    return this.httpCli.delete<any>('http://localhost:9000/session', {
+    return this.httpCli.delete<any>(`${environment.domain}/session`, {
       withCredentials: true
     });
   }
 
   getUserbyUserId() {
-    return this.httpCli.get<User>(`${environment.domain}/user/${this.userId}`);
+    return this.httpCli.get<User>(`${environment.domain}/user/${this.userId}`, {
+      withCredentials: true
+    })
   }
   
   getAllPost() {
@@ -61,24 +58,38 @@ export class ServiceService {
   }
 
   getAllPostByUserId() {
-    return this.httpCli.get<any>(`${environment.domain}post/userId/${this.userId}`);
+    return this.httpCli.get<any>(`${environment.domain}post/userId/${this.userId}`, {
+      withCredentials: true
+    })
   }
 
   getOnePostById() {
-    return this.httpCli.get<Post>(`${environment.domain}/post/${this.postId}`);
+    return this.httpCli.get<Post>(`${environment.domain}/post/${this.postId}`, {
+      withCredentials: true
+    })
   }
 
   getOneComment() {
-    return this.httpCli.get<Comment>(`${environment.domain}/comment/${this.commentId}`)
+    return this.httpCli.get<Comment>(`${environment.domain}/comment/${this.commentId}`, {
+      withCredentials: true
+    })
   }
 
   getAllCommentsByPostId() {
-    return this.httpCli.get<any>(`${environment.domain}/comment/post/${this.postId}/comment`)
+    return this.httpCli.get<any>(`${environment.domain}/comment/post/${this.postId}/comment`, {
+      withCredentials: true
+    })
   }
 
   createPost(post : Post) {
     return this.httpCli.post<any>(`${environment.domain}/post`, 
     post, {
+      withCredentials: true
+    })
+  }
+
+  getOneLike() {
+    return this.httpCli.get<any>(`${environment.domain}/likes/${this.likesId}`, {
       withCredentials: true
     })
   }
@@ -90,8 +101,14 @@ export class ServiceService {
     })
   }
 
-  deleteLike() {
-    return this.httpCli.delete<any>(`${environment.domain}/likes`, {
+  deleteLike(likesId : number) {
+    return this.httpCli.delete<any>(`${environment.domain}/likes/${likesId}`, {
+      withCredentials: true
+    })
+  }
+
+  updateLikeCount() {
+    return this.httpCli.patch<any>(`${environment.domain}/post/${this.postId}/count/${this.postId_fk}`, {
       withCredentials: true
     })
   }

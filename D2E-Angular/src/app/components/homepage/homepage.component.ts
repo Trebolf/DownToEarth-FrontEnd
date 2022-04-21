@@ -67,5 +67,4 @@ export class HomepageComponent implements OnInit, DoCheck {
       console.log(responseBody);
     })
   }
-
 }
