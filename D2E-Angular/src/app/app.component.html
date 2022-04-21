@@ -14,6 +14,9 @@
             <a class="nav-link" routerLink="/userId">Profile</a>
           </li>
           <li class="nav-item">
+            <button class="search-button" (click)="toggleSearch()">Search</button>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" routerLink="/register">Register</a>
           </li>
           <li class="nav-item">
@@ -23,5 +26,29 @@
       </div>
     </div>
   </nav>
+</div>
+
+<div *ngIf="searchBox">
+  <div class="grey-overlap">
+    <div class="search-container">
+      <div class="search-head"></div>
+      <div class="search-card">
+        <div class="search-head">Search</div>
+        <div class="search-form-text">Display User Profile:</div>
+        <form class="search-form" (submit)="redirectToProfile()">
+          <input
+            class="search-input" 
+            type="text" 
+            [(ngModel)]="user.username" 
+            name="username" 
+            placeholder="Username" 
+            required>
+        </form>
+        <div class="search-button-container">
+          <button class="search-form-button" (click)="redirectToProfile()">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <router-outlet></router-outlet>
