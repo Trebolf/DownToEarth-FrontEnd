@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterContentInit, Component, DoCheck, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Like } from 'src/app/models/Like';
 import { Post } from 'src/app/models/Post';
 import { User } from 'src/app/models/User';
@@ -9,7 +9,7 @@ import { ServiceService } from 'src/app/services/service.service';
   templateUrl: './parent.component.html',
   styleUrls: ['./parent.component.css']
 })
-export class ParentComponent implements OnInit {
+export class ParentComponent implements OnInit{
 
   postList : Array<Post> = [];
   post : Post = <Post>{};
@@ -24,7 +24,7 @@ export class ParentComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllPost();
-    this.getOnePostById(this.post);
+    this.separateEachPost();
   }
 
   getAllPost() {
@@ -40,12 +40,20 @@ export class ParentComponent implements OnInit {
     });
   }
 
+  separateEachPost() {
+    this.service.getAllPost().subscribe(responseBody => {
+      this.postList = responseBody;
+      this.post = responseBody.getOnePostById()
+      console.log(this.post);
+    })
+  }
+
   createLike(e : any) {
     e.preventDefault();
 
-    this.service.getUserbyUserId().subscribe(userToLike => {
+    this.service.checkSession().subscribe(userToLike => {
       this.user = userToLike;
-      console.log(this.user);
+      console.log(userToLike);
 
         this.service.getOnePostById().subscribe(postToLike => {
           this.post = postToLike;
