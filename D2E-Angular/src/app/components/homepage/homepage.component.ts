@@ -1,4 +1,5 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Post } from 'src/app/models/Post';
 import { User } from 'src/app/models/User';
 import { ServiceService } from 'src/app/services/service.service';
@@ -17,7 +18,7 @@ export class HomepageComponent implements OnInit, DoCheck {
   post : Post = <Post>{};
   
 
-  constructor(private service : ServiceService) { }
+  constructor(private service : ServiceService, private router : Router) { }
 
   ngOnInit(): void {
     this.checkSession();
@@ -65,6 +66,9 @@ export class HomepageComponent implements OnInit, DoCheck {
   checkSession(){
     this.service.checkSession().subscribe(responseBody => {
       console.log(responseBody);
+      if (responseBody == null){
+        this.router.navigate(["../"])
+      }
     })
   }
 }
