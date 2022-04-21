@@ -71,5 +71,4 @@ export class HomepageComponent implements OnInit, DoCheck {
       }
     })
   }
-
 }
