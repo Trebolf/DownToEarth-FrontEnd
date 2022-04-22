@@ -35,12 +35,12 @@ export class ParentComponent implements OnInit{
     })
   }
 
-  getOnePostById() {
-    this.service.getOnePostById().subscribe(responseBody => {
-      this.post = responseBody;
-      console.log(responseBody);
-    });
-  }
+  // getOnePostById() {
+  //   this.service.getOnePostById(postId).subscribe(responseBody => {
+  //     this.post = responseBody;
+  //     console.log(responseBodgy);
+  //   });
+  // }
 
   // separateEachPost() {
 
@@ -70,7 +70,7 @@ export class ParentComponent implements OnInit{
       this.user = userToLike;
       console.log(userToLike);
 
-        this.service.getOnePostById().subscribe(postToLike => {
+        this.service.getOnePostById(postId).subscribe(postToLike => {
           this.post = postToLike;
           console.log(this.post);
 
@@ -81,8 +81,10 @@ export class ParentComponent implements OnInit{
           this.service.createLike(this.like).subscribe(responseBody => {
             this.likeList.push(responseBody.data);
           })
-       });
+      });
     })
+    this.updateLikeCount(postId);
+    this.toggleLikeButton();
   }
 
   /* createLike2(postId : number) {
@@ -134,16 +136,21 @@ export class ParentComponent implements OnInit{
   }
 
   deleteLike2() {
+    
+    let postId;
+
     this.service.getOneLike().subscribe(responseBody => {
       console.log(responseBody)
       this.like = responseBody;
 
       this.service.deleteLike(this.like.likesId).subscribe()
     })
+    this.updateLikeCount(postId);
+    this.toggleLikeButton();
   }
 
-  updateLikeCount() {
-    this.service.updateLikeCount().subscribe(responseBody => {
+  updateLikeCount(postId : any) {
+    this.service.updateLikeCount(postId).subscribe(responseBody => {
       this.post.commentCount = responseBody.commentCount;
       this.post.likesCount = responseBody.likesCount;
     })

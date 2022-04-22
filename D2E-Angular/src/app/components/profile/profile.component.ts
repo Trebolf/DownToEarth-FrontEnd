@@ -55,21 +55,21 @@ export class ProfileComponent implements OnInit {
     })
   }
 
-  getOnePostById(post : Post) {
-    this.service.getOnePostById().subscribe(responseBody => {
-      this.post = post;
-      console.log(post);
-    });
-  }
+  // getOnePostById(post : Post) {
+  //   this.service.getOnePostById().subscribe(responseBody => {
+  //     this.post = post;
+  //     console.log(post);
+  //   });
+  // }
 
-  createLike(e : any) {
-    e.preventDefault();
+  createLike(postId : any) {
+    // e.preventDefault();
 
     this.service.getUserbyUserId().subscribe(userToLike => {
       this.user = userToLike;
       console.log(this.user);
 
-        this.service.getOnePostById().subscribe(postToLike => {
+        this.service.getOnePostById(postId).subscribe(postToLike => {
           this.post = postToLike;
           console.log(this.post);
 
@@ -123,12 +123,12 @@ export class ProfileComponent implements OnInit {
     })
   }
 
-  updateLikeCount() {
-    this.service.updateLikeCount().subscribe(responseBody => {
-      this.post.commentCount = responseBody.commentCount;
-      this.post.likesCount = responseBody.likesCount;
-    })
-  }
+  // updateLikeCount() {
+  //   this.service.updateLikeCount().subscribe(responseBody => {
+  //     this.post.commentCount = responseBody.commentCount;
+  //     this.post.likesCount = responseBody.likesCount;
+  //   })
+  // }
 }
 
 

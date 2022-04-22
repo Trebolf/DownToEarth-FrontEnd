@@ -64,8 +64,8 @@ export class ServiceService {
     })
   }
 
-  getOnePostById() {
-    return this.httpCli.get<Post>(`${environment.domain}/post/${this.postId}`, {
+  getOnePostById(postId : any) {
+    return this.httpCli.get<Post>(`${environment.domain}/post/${postId}`, {
       withCredentials: true
     })
   }
@@ -108,8 +108,8 @@ export class ServiceService {
     })
   }
 
-  updateLikeCount() {
-    return this.httpCli.patch<any>(`${environment.domain}/post/${this.postId}/count/${this.postId_fk}`, {
+  updateLikeCount(postId : any) {
+    return this.httpCli.patch<any>(`${environment.domain}/post/${postId}/count/${postId}`, {
       withCredentials: true
     })
   }

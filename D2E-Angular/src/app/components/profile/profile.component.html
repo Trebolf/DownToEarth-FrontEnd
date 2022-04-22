@@ -62,18 +62,14 @@
                         [id]="obj.postId" 
                         class="gem-img" 
                         alt="background image" 
-                        (click)="createLike($event)" 
-                        (click)="updateLikeCount()" 
-                        (click)="toggleLikeButton()">
+                        (click)="createLike(obj.postId)">
                     </div>
                     <div *ngIf="!likeGem">
                         <img src="../../../../assets/images/gem.png" 
                         [id]="obj.postId" 
                         class="gem-img" 
                         alt="background image" 
-                        (click)="deleteLike2()" 
-                        (click)="updateLikeCount()" 
-                        (click)="toggleLikeButton()">
+                        (click)="deleteLike2()">
                     </div>
                     <div class="post-gem-count">{{obj.likesCount}}</div>
                     <div class="post-time-submitted">{{obj.timePosted | date}}</div>
