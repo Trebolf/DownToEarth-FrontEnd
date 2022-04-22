@@ -49,4 +49,39 @@
 
             </div>
     </form>
+
+    <div class="post-container">
+        <div *ngFor="let obj of postList" class="post">
+            <div class="post-tab">{{obj?.user?.username}}</div>
+            <div *ngIf="this.post" class="post-card" id="{{obj.postId}}">
+                <p class="post-body">{{obj.postBody}}</p>
+                <img class="post-media" src="{{obj.postMedia}}">
+                <div class="post-status">
+                    <div *ngIf="likeGem">
+                        <img src="../../../../assets/images/gemgrey.png" 
+                        [id]="obj.postId" 
+                        class="gem-img" 
+                        alt="background image" 
+                        (click)="createLike($event)" 
+                        (click)="updateLikeCount()" 
+                        (click)="toggleLikeButton()">
+                    </div>
+                    <div *ngIf="!likeGem">
+                        <img src="../../../../assets/images/gem.png" 
+                        [id]="obj.postId" 
+                        class="gem-img" 
+                        alt="background image" 
+                        (click)="deleteLike2()" 
+                        (click)="updateLikeCount()" 
+                        (click)="toggleLikeButton()">
+                    </div>
+                    <div class="post-gem-count">{{obj.likesCount}}</div>
+                    <div class="post-time-submitted">{{obj.timePosted | date}}</div>
+                </div>
+                <div class="comment-container">
+                    <app-child></app-child>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

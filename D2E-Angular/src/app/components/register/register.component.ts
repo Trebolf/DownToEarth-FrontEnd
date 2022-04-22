@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
   
   createUser(username: string, password: string, email: string, firstname: string, lastname: string, location: string, profilePic: string){
     
-    this.service.createUser(this.username, this.password, this.email, this.firstname, this.lastname, this.location, this.profilePic).subscribe(responseBody => {
+    this.service.createUser(this.username, this.password, this.email, this.firstname, this.lastname, this.location, "https://crs3bucket.s3.amazonaws.com/b384c649-f5ef-481c-84e3-f55464c0ddbd.jpg").subscribe(responseBody => {
       this.username="";
       this.password="";
       this.email="";
