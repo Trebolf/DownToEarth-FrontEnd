@@ -19,6 +19,7 @@ export class HomepageComponent implements OnInit, DoCheck {
   postMedia : string = "";
   file : File = <File>{};
   fileUrl : any;
+  picUrl : string = "";
   picExists : boolean = true;
   constructor(private service : ServiceService, private router : Router) { }
 
@@ -46,15 +47,27 @@ export class HomepageComponent implements OnInit, DoCheck {
   
 
     this.post.postMedia = responseBody;
-
     console.log(responseBody);
+    const picObj = JSON.stringify(responseBody);
+    
+    JSON.parse(picObj, (key,value) => {
+      typeof value === 'string'
+      //this.picUrl = value;
+      console.log(key);
+      console.log(value);
+    
+
+    // console.log(picUrl);
+    
+
     
     
     
     this.service.checkSession().subscribe(userToPost => {
       this.user=userToPost;
       this.post.user=userToPost;
-      this.post.postMedia="https://crs3bucket.s3.amazonaws.com/b384c649-f5ef-481c-84e3-f55464c0ddbd.jpg";
+      console.log(value);
+      this.post.postMedia=value;
       
       console.log(this.post);
       
@@ -69,6 +82,7 @@ export class HomepageComponent implements OnInit, DoCheck {
       })
     })
     })
+  })
   }
   addFile(e : any)
   {
