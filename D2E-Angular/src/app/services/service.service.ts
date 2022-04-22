@@ -57,8 +57,9 @@ export class ServiceService {
     return this.httpCli.get<any>(`${environment.domain}/post`);
   }
 
-  getAllPostByUserId() {
-    return this.httpCli.get<any>(`${environment.domain}post/userId/${this.userId}`, {
+  getAllPostByUserId(userId: number) {
+    console.log(userId);
+    return this.httpCli.get<any>(`${environment.domain}/post/userId/${userId}`, {
       withCredentials: true
     })
   }
@@ -137,5 +138,9 @@ export class ServiceService {
     },{
       withCredentials: true
     })
+  }
+  upload(image: FormData){
+    console.log(image);
+    return this.httpCli.post<any>(`${environment.domain}/upload`,image)
   }
 }

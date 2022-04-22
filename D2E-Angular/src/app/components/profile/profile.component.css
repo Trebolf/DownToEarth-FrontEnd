@@ -106,3 +106,81 @@ h3{
     - add profile photo into profile
     - edit profile
 */
+.post-tab {
+    margin-top: 20px;
+	border-bottom: 40px solid #6b913f;
+	border-left: 25px solid transparent;
+	border-right: 25px solid transparent;
+	height: 0;
+	width: 25vh;
+    margin-left: 12px;
+    color: white;
+    font-size: 24px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.post-card{
+    background-color: #938863;
+    border-color: #d8d293;
+    border-radius: 12px;
+    border-width: 8px;
+    border-style: solid;
+    width: 75vh;
+    color: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
+    margin-bottom: 10vh;
+}
+
+.post-body{
+    margin-top: 12px;
+    margin-left: 12px;
+    margin-right: 12px;
+    line-height: 20px;
+    font-size: 2vh;
+    overflow-wrap: break-word;
+}
+
+.post-media{
+    width: 100%;
+    height: auto;
+}
+
+.post-status{
+    display: flex;
+    margin: 8px;
+}
+
+.gem-img{
+    margin-left: 8px;
+    height: 3vh;
+    width: auto;
+    cursor: pointer;
+}
+
+.gem-img:hover{
+    transform: scale(1.1);
+    -webkit-filter: drop-shadow(0 0 6px rgb(113, 255, 56));
+    filter: drop-shadow(0 0 6px rgb(113, 255, 56));
+}
+
+.gem-img:active{
+    transform: scale(1);
+}
+
+.post-gem-count{
+    margin-left: 8px;
+    font-size: 2vh;
+}
+
+.post-time-submitted{
+    margin-left: auto;
+    margin-right: 8px;
+    font-size: 2vh;
+}
+
+.comment-container{
+    padding: 12px;
+    padding-top: 0px;
+    margin-top: 0px;
+}

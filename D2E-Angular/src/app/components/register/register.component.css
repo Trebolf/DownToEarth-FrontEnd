@@ -68,9 +68,6 @@
     margin-bottom: 8px;
     margin-right: 10px;
     border-radius: 3px;
-    position: relative;
-    left: 50%;
-    bottom: 5%;
 }
 
 .btn{
@@ -78,6 +75,7 @@
     border: 2px solid #d8d293;
     color: white;
     border-radius: 8px;
+    
 
 }
 .asterisk{
