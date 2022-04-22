@@ -139,11 +139,8 @@ export class ServiceService {
       withCredentials: true
     })
   }
-  upload(image: File){
+  upload(image: FormData){
     console.log(image);
-    const formData = new FormData();
-    formData.append('image', image)
-    console.log(formData);
-    return this.httpCli.post<any>(`${environment.domain}/upload`,formData)
+    return this.httpCli.post<any>(`${environment.domain}/upload`,image)
   }
 }

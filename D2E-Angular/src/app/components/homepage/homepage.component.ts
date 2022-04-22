@@ -46,9 +46,19 @@ export class HomepageComponent implements OnInit, DoCheck {
     })
   }
 
-  createPost(e : any) {
-    e.preventDefault();
+  createPost() {
+    let formData: FormData = new FormData();
+    formData.append('file', this.file);
+    console.log(formData);
+    this.service.upload(formData).subscribe(responseBody => {
+  
 
+    this.post.postMedia = responseBody;
+
+    console.log(responseBody);
+    
+    
+    
     this.service.checkSession().subscribe(userToPost => {
       this.user=userToPost;
       this.post.user=userToPost;
@@ -66,6 +76,7 @@ export class HomepageComponent implements OnInit, DoCheck {
         console.log(this.post.postBody);
       })
     })
+    })
   }
   addFile(e : any)
   {
@@ -81,6 +92,7 @@ export class HomepageComponent implements OnInit, DoCheck {
       this.service.upload(e.target.files[0])
       console.log(e.target.files[0])
   }
+  
   checkSession(){
     this.service.checkSession().subscribe(responseBody => {
       console.log(responseBody);
